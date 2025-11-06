@@ -65,7 +65,7 @@ Execute cada uma das tarefas a seguir, sempre validando se os arquivos gerados e
 
 ### 1. Criar a Estrutura de Pastas (exemplo monorepo)
 ```
-/ecom
+/importau
   /backend
     /backend1
     /backend2
@@ -80,15 +80,15 @@ Execute cada uma das tarefas a seguir, sempre validando se os arquivos gerados e
 ```
 
 ### 2. Criar um projeto em Java usando Cucumber para implementar contemplar os testes de integração seguindo melhores práticas de BDD:
-- Os arquivos devem ser gerados em /ecom/testes_integracao
+- Os arquivos devem ser gerados em /importau/testes_integracao
 - Usar os cenários de testes em portugues
 - Contemplar o uso de Esquema de Cenários, incluindo exemplos com valores no formato tabular para serem usados nos testes
 - No final desta etapa, executar o projeto com "mvn test", porém como os microsserviços ainda não foram criados, esses testes devem falhar
 - Verificar e corrigir somente erros relacionados ao Cucumber
-- Criar script para disparar teste de integração em /ecom/scripts
+- Criar script para disparar teste de integração em /importau/scripts
 
 ### 3. Criar o código de cada um dos backends, contemplando os testes unitários seguindo melhores práticas de TDD:
-- Os arquivos de cada backend devem ser gerados em /ecom/backend
+- Os arquivos de cada backend devem ser gerados em /importau/backend
 - Os diversos microsserviços devem ser criados usando Docker, ou seja, deve ser criado um Dockerfile
 - Cada backend deve acessar seu próprio banco de dados. Cada banco de dados deve ser executado em docker.
 - Deve ser habilitado o CORS para redirecionamento aos backends
@@ -103,17 +103,17 @@ Execute cada uma das tarefas a seguir, sempre validando se os arquivos gerados e
 - Os testes unitários devem ser implementados para validar funcionalidades internas de cada microsserviço
 - Criar a imagem de cada microsserviço através do comando docker build
 - Executar cada microsserviço e verificar se os testes unitários de cada microsserviço está sendo realizado com sucesso
-- Quando todos os microsserviços estiverem rodando com sucesso, deve ser adaptado o teste de integracao da pasta /ecom/testes_integracao para implementar a chamada ao endpoint de cada um dos microsserviços
+- Quando todos os microsserviços estiverem rodando com sucesso, deve ser adaptado o teste de integracao da pasta /importau/testes_integracao para implementar a chamada ao endpoint de cada um dos microsserviços
 - Disparar o teste de integração e garantir que esteja efetivamente validando todos os microsserviços criados na solução, de acordo com os requisitos funcionais e não funcionais definidos no arquivo 1-genai-requisitos.md
 - Criar um docker-compose.yml na pasta /infra/docker-compose/singlenode
 - Verificar se no docker-compose.yml existe a configuração para executar o banco de dados de cada um dos microsserviços
 - Criar o script de "migrations" que vai inserir dados em todos os bancos de dados de cada um dos backends
 - Executar a solução, inclusive o script para inserir dados nos bancos de dados, e corrigir automaticamente os erros que forem sendo encontrados
-- Criar script para executar a solução em /ecom/scripts
+- Criar script para executar a solução em /importau/scripts
 
 ### 5. Garantir frontend e os backends estão executando e funcionando corretamente
 - Digitando docker ps
-- Pesquisar na pasta do projeto /ecom e verificar se existe algum código que esteja apontando para localhost, e se for encontrado, ajustar para usar variável de ambiente
+- Pesquisar na pasta do projeto /importau e verificar se existe algum código que esteja apontando para localhost, e se for encontrado, ajustar para usar variável de ambiente
 - Verificar se as configurações do Swagger UI em cada backend está configurado corretamente para acesso externo e suportando CORS, Content Security Policy (CSP). 
 - Verificar se todos os Backends da solução foram implementados, estão rodando e funcionando
 
