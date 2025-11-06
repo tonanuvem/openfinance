@@ -40,15 +40,16 @@ b) Supporting Domain (Domínio de Suporte)
 Microsserviço de Câmbio (integração SISBACEN/PTAX)
 Microsserviço de Open Finance
 
-c) Analytics & Intelligence (Análise e Inteligência)
+c) Data Management (Gestão de Dados)
 
-Microsserviço de ETL/Ingestão de Dados
+Microsserviço IMPORTAÚ (Orquestração e Hub de Dados) com Ingestão de Dados
+Microsserviço de Enriquecimento de Dados
+Microsserviço de Correlação de Dados
+
+d) Analytics & Intelligence (Análise e Inteligência)
+
 Microsserviço de Análise Preditiva (Machine Learning)
 Microsserviço de Forecast (Previsões)
 Microsserviço de Dashboards (Visualização e Relatórios)
 
-d) Data Management (Gestão de Dados)
 
-Microsserviço de Enriquecimento de Dados
-Microsserviço de Correlação de Dados
-Microsserviço IMPORTAÚ (Orquestração e Hub de Dados)
