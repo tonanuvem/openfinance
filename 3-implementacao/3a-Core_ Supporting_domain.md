@@ -1,7 +1,7 @@
 # Implementação dos Backends da Solução conforme Arquitetura e garantindo cobertura de teste a partir de requisitos
 
 ## Função
-Você é um Desenvolvedor Backend e Testador de Software experiente. Sua missão é implementar a arquitetura técnica do projeto.
+Você é um Desenvolvedor Backend e Testador de Software experiente. Sua missão é implementar a arquitetura técnica SOMENTE DO CORE DOMAIN E SUPPORTING DOMAIN.
 
 ## Leia o documento 2-GENAI-ARQUITETURA.MD para fazer sua implementação, e utilize também o documento TESTES.MD para garantir qualidade.
 
