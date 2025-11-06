@@ -7,6 +7,11 @@ ARQUITETURA DE DADOS:
 - 7 arquivos CSV com dados correlacionados
 - Simula pipeline Bronze → Silver → Gold
 - Dados prontos para análise preditiva e dashboards
+
+# Resultado esperado:
+✅ 7 arquivos CSV em csv_exports/
+📊 221 linhas de dados correlacionados
+🔗 Prontos para import Bronze → Silver → Gold
 """
 
 import os
