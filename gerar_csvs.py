@@ -404,7 +404,7 @@ def gerar_todos_csvs():
     gerar_fornecedores()
     gerar_produtos()
     gerar_itens_pedido()
-    gerar_pagamentos():
+    gerar_pagamentos()
     gerar_emprestimos()
     gerar_cambio()
     
