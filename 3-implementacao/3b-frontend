@@ -55,7 +55,7 @@ Execute cada uma das tarefas a seguir, sempre validando se os arquivos gerados e
 
 ### 1. Criar subpasta do frontend e Analisar a Estrutura de Pastas já criada (exemplo monorepo)
 ```
-/ecom
+/importau
   /frontend
   /backend
     /backend1
@@ -72,15 +72,15 @@ Execute cada uma das tarefas a seguir, sempre validando se os arquivos gerados e
 ```
 
 ### 2. Criar o projeto em Java usando Cucumber e Selenium para contemplar o Frontend nos testes seguindo melhores práticas de BDD:
-- Os arquivos devem ser gerados em /ecom/testes_ui
+- Os arquivos devem ser gerados em /importau/testes_ui
 - Usar os cenários de testes em portugues
 - Contemplar o uso de Esquema de Cenários, incluindo exemplos com valores no formato tabular para serem usados nos testes
 - No final desta etapa, executar o projeto com "mvn test", e considerando que os microsserviços já foram criados e estão rodando, esses testes ser executados com sucesso
 - Verificar e corrigir erros relacionados ao Selenium
-- Criar script para disparar teste de ui em /ecom/scripts
+- Criar script para disparar teste de ui em /importau/scripts
 
 ### 3. Criar o código do frontend, contemplando os testes unitários seguindo melhores práticas de TDD:
-- Os arquivos do frontend devem ser gerados em /ecom/frontend
+- Os arquivos do frontend devem ser gerados em /importau/frontend
 - Frontend deve ser criados usando Docker, ou seja, deve ser criado um Dockerfile
 - O Frontend deve ser criado com react-admin (https://marmelab.com/react-admin/) e vite
 - O Frontend deve ser construido com base no exemplo disponivel em: https://marmelab.com/react-admin-helpdesk/
@@ -102,7 +102,7 @@ Execute cada uma das tarefas a seguir, sempre validando se os arquivos gerados e
 
 ### 4. Garantir frontend e os backends estão executando e funcionando corretamente
 - Digitando docker ps
-- Pesquisar na pasta do projeto /ecom e verificar se existe algum código que esteja apontando para localhost, e se for encontrado, ajustar para usar variável de ambiente
+- Pesquisar na pasta do projeto /importau e verificar se existe algum código que esteja apontando para localhost, e se for encontrado, ajustar para usar variável de ambiente
 - Verificar o Frontend da solução foi implementado, está rodando e se está funcionando
 - Verificar se todos os Backends da solução foram implementados, estão rodando e funcionando
 
