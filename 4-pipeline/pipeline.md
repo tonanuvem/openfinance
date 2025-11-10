@@ -1,6 +1,6 @@
 # Descrição do Projeto e Objetivo do Pipeline
 
-A pasta /ecom contém um **projeto monorepo** composto por múltiplos **microserviços** (cada um com seus próprios testes unitários) e uma pasta separada de **testes de integração** baseada em **Cucumber**.
+A pasta /importau contém um **projeto monorepo** composto por múltiplos **microserviços** (cada um com seus próprios testes unitários) e uma pasta separada de **testes de integração** baseada em **Cucumber**.
 
 O objetivo é criar um **pipeline de CI/CD simples** que possa ser **executado tanto localmente quanto em ambiente de CI** (por exemplo, GitHub Actions, AWS CodeBuild, ou outra plataforma), garantindo a execução automatizada de:
 1. Build dos microserviços
@@ -13,7 +13,7 @@ O objetivo é criar um **pipeline de CI/CD simples** que possa ser **executado t
 ## Estrutura Geral do Repositório para esta etapa
 
 ```
-ecom/
+importau/
 └── .github/
     └── workflows/
         └── ci.yml
@@ -28,8 +28,8 @@ ecom/
 - Etapas:
   - Checkout do código
   - Configuração do ambiente
-  - Execução dos testes unitários dos microserviços a partir da pasta /ecom/backend
-  - Execução dos testes de integração Cucumber a partir da pasta /ecom/testes_integracao
+  - Execução dos testes unitários dos microserviços a partir da pasta /importau/backend
+  - Execução dos testes de integração Cucumber a partir da pasta /importau/testes_integracao
 - Um job de deploy no proprio ambiente usando docker-compose.yml
 
 ### 2. Compatibilidade
@@ -58,7 +58,7 @@ ecom/
 
 ### 5. Exemplo de comando desejado para execução local
 
-Criar um script na pasta /ecom/scripts para que seja possível executar o pipeline, por exemplo:
+Criar um script na pasta /importau/scripts para que seja possível executar o pipeline, por exemplo:
 
 ```bash
 act workflow_dispatch
