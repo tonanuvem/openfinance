@@ -31,21 +31,25 @@ importau/
 - Ferramenta de build: **Maven Wrapper (`./mvnw`)**
 - O pipeline deve configurar o ambiente Java antes de executar testes.
 
-### 2. Testes Unitários
+### 1. Testes Unitários
 - Cada microserviço deve rodar seus próprios testes unitários com.
 - Executar sequencialmente ou em paralelo, conforme suporte da plataforma.
 
-### 3. Testes de Integração e de User Interface usando Selenium
+### 2. Testes de Integração
 - Localizados na pasta ` testes_integracao/`
 - Criar ou melhorar os arquivo .feature com os cenários Behavior Driven Development
 - Devem ser executados com:
   ```bash
   mvn clean test
   ```
-- Usam **Cucumber** para validações ponta a ponta.
+- Usam **Cucumber** para validações entre componentes.
+
+### 3. Testes de User Interface usando Selenium
+- Localizados na pasta ` testes_integracao/`
+- Criar ou melhorar os arquivo .feature com os cenários Behavior Driven Development
+- Usam **Cucumber** para validações chamar o Selenium.
 - Usam **Selenium** headless em container para validações usando o Swagger UI.
 - Para o **Selenium** headless deve ser configurado o screenshot das telas, organizando em pastas no formato ano_mês_dia_hora_min: AAAA_MM_DD_HH_MM.
-
 
 ### 4. Estrutura de Jobs
 - Um job principal chamado `build-and-test`
