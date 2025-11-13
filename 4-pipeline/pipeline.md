@@ -1,19 +1,22 @@
-# Descrição do Projeto e Objetivo do Pipeline
+# 📦 Descrição do Projeto e Objetivo do Pipeline
 
-A pasta /importau contém um **projeto monorepo** composto por múltiplos **microserviços** (cada um com seus próprios testes unitários) e uma pasta separada de **testes de integração** baseada em **Cucumber**.
+Este repositório contém um microsserviços do projeto **Importau**
 
-O objetivo é criar um **pipeline de CI/CD simples** que possa ser **executado tanto localmente quanto em ambiente de CI** (por exemplo, GitHub Actions, AWS CodeBuild, ou outra plataforma), garantindo a execução automatizada de:
+O objetivo é criar um **pipeline de CI/CD simples** que possa ser **executado tanto localmente quanto em ambiente de CI** (por exemplo: GitHub Actions), garantindo a execução automatizada de:
 1. Build dos microserviços
 2. Testes unitários de cada microserviço
 3. Testes de integração de ponta a ponta (Cucumber)
-4. Implantação (deploy) usando o docker-compose para ambientes local ou de produção
+4. Opção futura de implantação (deploy) para ambientes de staging/produção
 
 ---
 
-## Estrutura Geral do Repositório para esta etapa
+## 🧩 Estrutura Geral do Repositório
 
 ```
 importau/
+├── backend/
+├── testes_integracao/
+│   └── pom.xml
 └── .github/
     └── workflows/
         └── ci.yml
@@ -21,44 +24,81 @@ importau/
 
 ---
 
-## Requisitos Técnicos do Pipeline
+## 🧠 Requisitos Técnicos do Pipeline
 
-### 1. Estrutura de Fases do Pipeline
+### 1. Linguagem e Build
+- Linguagem: **Java 17**
+- Ferramenta de build: **Maven Wrapper (`./mvnw`)**
+- O pipeline deve configurar o ambiente Java antes de executar testes.
+
+### 2. Testes Unitários
+- Cada microserviço deve rodar seus próprios testes unitários com.
+- Executar sequencialmente ou em paralelo, conforme suporte da plataforma.
+
+### 3. Testes de Integração e de User Interface usando Selenium
+- Localizados na pasta ` testes_integracao/`
+- Criar ou melhorar os arquivo .feature com os cenários Behavior Driven Development
+- Devem ser executados com:
+  ```bash
+  mvn clean test
+  ```
+- Usam **Cucumber** para validações ponta a ponta.
+- Usam **Selenium** headless em container para validações usando o Swagger UI.
+- Para o **Selenium** headless deve ser configurado o screenshot das telas, organizando em pastas no formato ano_mês_dia_hora_min: AAAA_MM_DD_HH_MM.
+
+
+### 4. Estrutura de Jobs
 - Um job principal chamado `build-and-test`
 - Etapas:
   - Checkout do código
-  - Configuração do ambiente
-  - Execução dos testes unitários dos microserviços a partir da pasta /importau/backend
-  - Execução dos testes de integração Cucumber a partir da pasta /importau/testes_integracao
-- Um job de deploy no proprio ambiente usando docker-compose.yml
+  - Verifique se há Dockerfile no projeto
+  - Gere o build da imagem 
+  - Execução do continer
+  - Execução dos testes unitários dos microserviços executados no conteiner
+  - Execução dos testes de integração Cucumber
+  - Execução dos testes de Interface de Usuário usando Selenium
+- Opcionalmente, um job futuro de deploy.
 
-### 2. Compatibilidade
+### 5. Compatibilidade
 - O pipeline deve poder rodar:
   - Localmente via **act (GitHub Actions local runner)**
-  - Em ambientes de CI/CD da AWS (ex: **AWS CodeBuild**)
   - Em **GitHub Actions** (estrutura YAML padrão)
 
-### 3. Expectativa de Saída do Pipeline
+---
 
-- Um arquivo YAML de pipeline (ex: `.github/workflows/ci.yml` ou `buildspec.yml`) que:
+## ⚙️ Expectativa de Saída do Pipeline
+
+- Um arquivo YAML de pipeline (ex: `.github/workflows/ci.yml`) que:
   - Faça o checkout do repositório
-  - Configure as dependencias necessárias
+  - Gere o build da imagem e execute o contêiner
   - Execute todos os testes unitários de cada microserviço
   - Execute os testes de integração (Cucumber)
-  - Exiba o status final da build (sucesso/falha)
+  - Execute os testes de interface do usuário (Selenium)
+  - Exiba o status final do build (sucesso/falha)
   - Use etapas nomeadas e com logs legíveis
 
-### 4. Requisitos adicionais
+---
+
+## 🧩 Requisitos Opcionais (para evolução futura)
 
 - Cache Maven (`actions/cache` ou similar)
-- Geração de relatórios
+- Geração de relatórios HTML
 - Build paralelo dos microserviços
-- Deploy automatizado para ambiente
+- Deploy automatizado para ambiente de staging no EKS/EC2
 - Integração com ferramentas de code quality (SonarQube)
 
-### 5. Exemplo de comando desejado para execução local
+---
 
-Criar um script na pasta /importau/scripts para que seja possível executar o pipeline, por exemplo:
+## ✅ Objetivo do Prompt
+
+Gerar um pipeline funcional, legível e portável (em YAML), com foco em **simplicidade, clareza e execução local via `act`** ou em **ambiente Github Actions**, de forma que o time de desenvolvimento possa:
+- Rodar testes automaticamente em cada commit/pull request
+- Validar integração completa antes de deploy
+- Ter logs claros para depuração de falhas
+
+---
+
+## 🧭 Exemplo de comando desejado para execução local
 
 ```bash
 act workflow_dispatch
@@ -66,14 +106,8 @@ act workflow_dispatch
 
 ---
 
-## Formato de Saída
+## 💬 Instrução para o Amazon Q Developer
 
-Gerar um pipeline funcional, legível e portável (em YAML), com foco em **simplicidade, clareza e execução local via `act`**, de forma que seja possível:
-- Rodar testes automaticamente em cada commit/pull request
-- Validar integração completa antes de deploy
-- Ter logs claros para depuração de falhas
+> Com base nesta descrição (`pipeline.md`), gere um arquivo de pipeline CI/CD YAML que atenda aos requisitos acima, priorizando simplicidade e compatibilidade com execução local (`act`) e com AWS CodeBuild.
 
-
-## Conclusão
-
-- Com base nesta descrição, deve ser gerado um arquivo de pipeline CI/CD YAML que atenda aos requisitos acima, priorizando simplicidade e compatibilidade com execução local (`act`).
+> Efetuar melhorias nos códigos para criar, validar e garantir a executação dos testes unitários, integração e de interface do usuário (usando selenium). Executar e validar se os testes estão funcionando.
