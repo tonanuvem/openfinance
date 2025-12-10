@@ -32,7 +32,7 @@ def gerar_pedidos():
         - pedidos.fornecedor_id → fornecedores.fornecedor_id
         - pedidos.pedido_id → itens_pedido.pedido_id
         - pedidos.pedido_id → pagamentos.pedido_id
-    USO: Matheus (Analista de Dados) - Base para análise de compras e previsões
+    USO: Base para análise de compras e previsões
     """
     dados = [
         ["pedido_id","data_pedido","fornecedor_id","valor_total_brl","status","tipo_pagamento","prazo_dias","data_entrega_prevista","usuario_criacao","observacoes"],
@@ -82,7 +82,7 @@ def gerar_fornecedores():
         - fornecedores.fornecedor_id → pedidos.fornecedor_id
         - fornecedores.fornecedor_id → produtos.fornecedor_id
         - fornecedores.moeda_negociacao → cambio.moeda
-    USO: Márcio Arbues - Gestão de fornecedores nacionais e internacionais
+    USO: Gestão de fornecedores nacionais e internacionais
     """
     dados = [
         ["fornecedor_id","razao_social","cnpj","pais_origem","categoria","rating","tempo_parceria_anos","condicoes_pagamento","moeda_negociacao","contato_email","telefone"],
@@ -132,8 +132,8 @@ def gerar_produtos():
         - produtos.produto_id → itens_pedido.produto_id
         - produtos.fornecedor_id → fornecedores.fornecedor_id
         - produtos.moeda_origem → cambio.moeda
-    USO: Felipe - Catálogo de produtos com preços em múltiplas moedas
-         Lari (Forecast) - Previsão de preços de produtos
+    USO: Catálogo de produtos com preços em múltiplas moedas
+         Previsão de preços de produtos
     """
     dados = [
         ["produto_id","nome_produto","categoria","subcategoria","fornecedor_id","preco_unitario_brl","moeda_origem","preco_origem","unidade_medida","peso_kg","estoque_atual","estoque_minimo","lead_time_dias","origem_fabricacao"],
@@ -183,8 +183,8 @@ def gerar_itens_pedido():
         - itens_pedido.pedido_id → pedidos.pedido_id
         - itens_pedido.produto_id → produtos.produto_id
     USO: Análise detalhada de volumes e valores
-         Lari (Forecast) - Previsão de volume de importação por produto
-         Gerente Marketing - Análise de categorias mais vendidas
+         Previsão de volume de importação por produto
+         Análise de categorias mais vendidas
     """
     dados = [
         ["item_id","pedido_id","produto_id","quantidade","preco_unitario","desconto_percentual","valor_total_item","data_inclusao","observacoes"],
@@ -246,8 +246,8 @@ def gerar_pagamentos():
         - pagamentos.fornecedor_id → fornecedores.fornecedor_id
         - pagamentos.moeda_origem → cambio.moeda
         - pagamentos.data_pagamento → cambio.data_cotacao (para aplicar PTAX correto)
-    USO: Celso/Marcos - Gestão de pagamentos e Open Finance
-         Gerente Financeiro - Análise de fluxo de caixa e conversões cambiais
+    USO: Gestão de pagamentos e Open Finance
+         Análise de fluxo de caixa e conversões cambiais
     """
     dados = [
         ["pagamento_id","pedido_id","fornecedor_id","data_pagamento","valor_pago_brl","metodo_pagamento","status_pagamento","taxa_cambio_aplicada","moeda_origem","valor_moeda_origem","num_parcelas","parcela_atual","data_vencimento","usuario_aprovacao"],
@@ -296,9 +296,9 @@ def gerar_emprestimos():
     CORRELAÇÃO:
         - Independente de outras tabelas (domínio separado)
         - Alimenta previsão de fluxo de caixa junto com pagamentos
-    USO: Celso - Gestão de empréstimos bancários
-         Lari (Forecast) - Previsão de fluxo de caixa considerando parcelas
-         Gerente Financeiro - Análise de endividamento e compromissos futuros
+    USO: Gestão de empréstimos bancários
+         Previsão de fluxo de caixa considerando parcelas
+         Análise de endividamento e compromissos futuros
     """
     dados = [
         ["emprestimo_id","data_contratacao","instituicao_financeira","valor_principal_brl","taxa_juros_anual","prazo_meses","valor_parcela_mensal","saldo_devedor","status","finalidade","data_vencimento_proxima","num_parcelas_pagas","usuario_responsavel"],
@@ -348,10 +348,10 @@ def gerar_cambio():
         - cambio.moeda → fornecedores.moeda_negociacao
         - cambio.moeda → produtos.moeda_origem
         - cambio.data_cotacao + moeda → pagamentos (para aplicar taxa correta)
-    USO: Gustavo - Integração SISBACEN (PTAX)
-         Analista de Dados - Correção monetária em pedidos internacionais
-         Lari (Forecast) - Previsão de câmbio para planejamento
-         Gerente Financeiro - Análise de exposição cambial
+    USO: Integração SISBACEN (PTAX)
+         Correção monetária em pedidos internacionais
+         Previsão de câmbio para planejamento
+         Análise de exposição cambial
     """
     dados = [
         ["data_cotacao","moeda","taxa_compra","taxa_venda","taxa_ptax","variacao_dia_percentual","fonte","tipo_cambio","hora_atualizacao"],
