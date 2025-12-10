@@ -1,4 +1,4 @@
-# Criar os arquivos YAMLs com base em imagens oficiais 
+# Criar os arquivos Scripts e também YAMLs com base em imagens oficiais visando posterior execução das Plataformas do projeto
 
 ## Função
 Você é um Arquiteto de Nuvens e SRE experiente. Sua missão é implementar a arquitetura técnica ATRAVÉS DAS PLATAFORMAS DE INFRAESTRUTURA.
