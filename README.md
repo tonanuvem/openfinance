@@ -10,6 +10,10 @@ Tarefas:
 - Realizar a Análise de Funcionalidades.
 - Definir Cenários de Testes (BDD, ATDD, TDD).
 
+Visualizar arquivos MD:
+- https://stackedit.io/app
+
+
 ## Domain Story Telling:
 
 ![alt text](OpenFinance_p3.svg)
