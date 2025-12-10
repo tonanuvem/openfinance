@@ -41,6 +41,7 @@ Usar a Estrutura de Pastas (exemplo monorepo)
 
 - Kafka: deverá ser usado para comunicação assíncrona entre os microsserviços.
 - ArgoCD: deverá ser usado como parte do pipeline CI/CD para atualizar automaticamente as novas versões dos microsserviços.
+- OpenMetadata: dever[a ser usado para gerenciar o pipeline de Dados para o ambiente analitico.
 
 ### 5. Deploy, Infraestrutura, Observability e Operação
 - Criar script para executar toda a solução
