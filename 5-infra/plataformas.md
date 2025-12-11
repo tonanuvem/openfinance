@@ -33,7 +33,7 @@ Usar a Estrutura de Pastas (exemplo monorepo)
 - EKS: cluster Kubernetes onde serão executados os diversos microsserviços e algumas plataformas necessárias ao funcionamento da solução.
 - AWS ApiGateway: será utilizado para verificar as rotas que estão sendo acessadas e direcionar a requisição ao respectivo microsserviço.
 - S3: será utilizado para armazenar arquivos CSVs com dados a serem correlacionados e enriquecidos para posterior uso em análise preditiva e dashboards.
-- Step Defs: conterá os passos para a criação do pipeline de dados, contemplando as camadas Bronze -> Silver -> Gold.
+- Step Functions: conterá os passos para a criação do pipeline de dados, contemplando as camadas Bronze -> Silver -> Gold.
 - CloudWatch: deverá armazenar métricas e logs dos diversos microsserviços e também das diversas plataformas utilizadas na solução.
 - AWS X Ray: deverá armazenar o tempo de resposta dos diversos microsserviços da solução.
 
