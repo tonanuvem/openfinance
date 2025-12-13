@@ -39,7 +39,8 @@ Esta DAG consome o FATO correlacionado da SILVER para criar os ativos curados e 
 Esta DAG testa a etapa anterior.
 
 #### 2.2. Projeto de Implementação Prática: Airflow e OpenMetadata
-Para colocar estas DAGs em funcionamento com a governança desejada, criar os arquivos necessários para os passos abaixo:
+Para colocar estas DAGs em funcionamento com a governança desejada, criar os arquivos necessários para os passos abaixo (tenho permissões restritas na AWS, então não deve ser criada nenhuma role IAM):
+- Verificar as permissões que tenho usando os comandos da AWS CLI.
 - Estrutura do Projeto na pasta /datapipeline/airflow: Crie a estrutura de diretórios do Airflow (ex: dags/, plugins/). Coloque dag_bronze.py, dag_silver.py e dag_gold.py dentro de dags/
 - Configuração S3 (Lakehouse) na pasta /script: Verifique se já existe ou Crie o bucket no S3 (s3://importau-lakehouse/). Configure a Connection aws_default (ou um ID específico) no Airflow, garantindo as credenciais de acesso ao S3.
 - Ajuste o projeto para fazer a instalação de Bibliotecas necessárias: Instale as dependências necessárias para a execução das funções Python nas DAGs usando por ex: pip install apache-airflow-providers-amazon pandas pyarrow s3fs
