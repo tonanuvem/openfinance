@@ -32,24 +32,23 @@ a) Core Domain (Domínio Principal)
 Microsserviço de Pedidos (Compras)
 Microsserviço de Fornecedores
 Microsserviço de Produtos
-Microsserviço de Pagamentos (Transações)
+Microsserviço de Pagamentos (Transações) com Open Finance
 Microsserviço de Empréstimos
 
 b) Supporting Domain (Domínio de Suporte)
 
 Microsserviço de Câmbio (integração SISBACEN/PTAX)
-Microsserviço de Open Finance
 
 c) Data Management (Gestão de Dados)
 
-Microsserviço IMPORTAÚ (Orquestração e Hub de Dados) com Ingestão de Dados
-Microsserviço de Enriquecimento de Dados
-Microsserviço de Correlação de Dados
+Processamento de dados analítico com Orquestração e com Ingestão de Dados
+Processamento de dados analítico com Enriquecimento de Dados
+Processamento de dados analítico com Correlação de Dados
 
 d) Analytics & Intelligence (Análise e Inteligência)
 
-Microsserviço de Análise Preditiva (Machine Learning)
-Microsserviço de Forecast (Previsões)
-Microsserviço de Dashboards (Visualização e Relatórios)
+Processamento de dados analítico com Análise Preditiva (Machine Learning)
+Processamento de dados analítico com Forecast (Previsões)
+Dashboards (Visualização e Relatórios)
 
 
